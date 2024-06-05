@@ -1,7 +1,8 @@
+import 'dart:developer';
 import 'package:financy_app/common/constanst/app_colors.dart';
 import 'package:financy_app/common/constanst/app_text_styles.dart';
 import 'package:flutter/material.dart';
-
+import '../../common/widgets/multi_text_button.dart';
 import '../../common/widgets/primary_button.dart';
 
 class OnbordingPage extends StatelessWidget {
@@ -14,13 +15,8 @@ class OnbordingPage extends StatelessWidget {
       body: Align(
         child: Column(
           children: [
-            const SizedBox(
-              height: 60,
-            ),
-            Expanded(
-              flex: 2,
-              child: Image.asset('assets/images/man.png'),
-            ),
+            const SizedBox(height: 60.0),
+            Image.asset('assets/images/man.png'),
             Text(
               'Spend Smarter',
               style: AppTextStyle.mediumText.copyWith(
@@ -34,27 +30,35 @@ class OnbordingPage extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 32.0,
-                vertical: 16.0,
+              padding: const EdgeInsets.only(
+                left: 32.0,
+                right: 32.0,
+                top: 16.0,
+                bottom: 4.0,
               ),
               child: PrimaryButton(
                 text: 'Get Started',
                 onPressed: () {},
               ),
             ),
-            const SizedBox(
-              height: 16,
+            MultiTextButton(
+              onPressed: () => log('tap on Log In button'),
+              children: [
+                Text(
+                  'Already have an account? ',
+                  style: AppTextStyle.smallText.copyWith(
+                    color: AppColors.grey,
+                  ),
+                ),
+                Text(
+                  'Log In',
+                  style: AppTextStyle.smallText.copyWith(
+                    color: AppColors.greenLightTwo,
+                  ),
+                ),
+              ],
             ),
-            Text(
-              'Already have an account? Log in',
-              style: AppTextStyle.smallText.copyWith(
-                color: AppColors.grey,
-              ),
-            ),
-            const SizedBox(
-              height: 24,
-            ),
+            const SizedBox(height: 24.0),
           ],
         ),
       ),
